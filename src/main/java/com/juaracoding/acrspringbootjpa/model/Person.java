@@ -19,70 +19,47 @@ Version 1.1
 public class Person {
 
 
-    @Column(name = "createdDate")
-    private Date createDate = new Date();
-
-    @Column(name = "createdBy")
-    private Integer createdBy;
-
-    @Column(name = "modifiedDate")
-    private Date modifiedDate;
-
-    @Column(name = "modifiedBy")
-    private Integer modifiedBy;
-
-    @Column(name = "isDelete")
-    private Byte isDelete = 1;
-
     @Id
     @Column(name = "IDPerson")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column(name = "FirstName", nullable = false, length = 15)
+    @Column(name = "FirstName", nullable = false,length = 15)
     private String firstName;
 
-    @Column(name = "MiddleName", nullable = true, length = 15)
+    @Column(name = "MiddleName",nullable = true, length = 15)
     private String middleName;
 
-    @Column(name = "LastName", length = 15)
+    @Column(name = "LastName",length = 15)
     private String lastName;
 
-    @Column(name = "dayOfBirth")
+
+    @Column(name = "DayOfBirth")
     private LocalDate dayOfBirth;
 
+    @Transient
     private Integer age;
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+    @Column(name ="CreatedDate")
+    private Date createdDate = new Date();
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+    @Column(name = "CreatedBy")
+    private Integer createdBy;
 
-    public Integer getCreatedBy() {
-        return createdBy;
-    }
+    @Column(name = "ModifiedDate")
+    private Date modifiedDate;
 
-    public void setCreatedBy(Integer createdBy) {
-        this.createdBy = createdBy;
-    }
+    @Column(name = "ModifiedBy")
+    private Integer modifiedBy;
 
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
+    @Column(name = "IsDelete")
+    private Byte isDelete = 1;
 
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
 
-    public Integer getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(Integer modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public Integer getAge() {
+        return Period.
+                between(this.dayOfBirth,LocalDate.now())
+                .getYears();
     }
 
     public Byte getIsDelete() {
@@ -93,11 +70,11 @@ public class Person {
         this.isDelete = isDelete;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -133,11 +110,39 @@ public class Person {
         this.dayOfBirth = dayOfBirth;
     }
 
-    public Integer getAge() {
-        return Period.between(this.dayOfBirth,LocalDate.now()).getYears();
-    }
-
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Integer getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Integer createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public Integer getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(Integer modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 }

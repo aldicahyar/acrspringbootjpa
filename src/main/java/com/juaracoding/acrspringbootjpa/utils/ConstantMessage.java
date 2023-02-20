@@ -14,6 +14,8 @@ public class ConstantMessage {
 
     /*CONTENT TYPE*/
     public final static String CONTENT_TYPE_CSV = "text/csv";
+    public final static String CONTENT_TYPE_XLS = "application/vnd.ms-excel";
+    public final static String CONTENT_TYPE_XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
     /*REGEX*/
     public final static String REGEX_PHONE = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
@@ -106,4 +108,11 @@ public class ConstantMessage {
     public final static String WARNING_ACCOUNT_DESTINATION_MANDATORY = "AKUN WALLET TUJUAN TIDAKBOLEH KOSONG";
     public final static String WARNING_AMMOUNTZ_MANDATORY = "MASUKKAN JUMLAH NOMINAL YANG INGIN DITRANSFER";
 
+    public static final String ERROR_NOT_EXCEL_FILE = "";
+    public static final String ERROR_EMPTY_FILE = "";
+    public static final String ERROR_SAVE_FAILED = "";
+    public static final String WARNING_CATPROD_MAX_LENGTH_NAME = "";
+    public static final String WARNING_CATPROD_NAME_CANNOT_EMPTY = "";
+    public static final String WARNING_CATPROD_DESC_CANNOT_EMPTY = "";
+    public static final String WARNING_CATPROD_MAX_LENGTH_DESC = "";
 }
